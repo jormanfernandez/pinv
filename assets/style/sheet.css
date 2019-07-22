@@ -1,0 +1,408 @@
+* {
+  margin: 0px;
+  padding:  0px;
+  box-sizing: border-box;
+  font-family: 'Arial';
+}
+
+.dialog-container {
+  position: fixed;
+}
+
+body {
+  overflow-x:  hidden;
+  height: 100%;
+}
+
+nav.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #480000;
+  font-family: Helvetica, 'san-serif';
+}
+
+.logo {
+  color: rgb(226,226,226);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+nav.menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+  position: absolute;
+  right: 0px;
+  height: 92vh;
+  top: 8vh;
+  background-color: #480000;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in;
+  z-index: 1;
+}
+
+nav.menu ul li {
+  list-style: none;
+}
+
+nav.menu ul a {
+  color: rgb(226,226,226);
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+nav.menu ul a:hover {
+  color: rgb(255,255,255);
+}
+
+.burger {
+  display: block;
+  cursor:  pointer;
+  z-index: 2;
+}
+
+.burger:hover > div {
+  background: rgb(255,255,255);
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(226,226,226);
+  margin: 5px;
+  transition: all 0.2s;
+}
+
+.active {
+  transform: translateX(0%) !important;
+}
+
+div.not-found {
+  text-align: center;
+  left: 0;
+  margin: auto;
+  margin-top: 70px;
+  border-radius: 3px;
+  background-color: white;
+  width: 900px;
+  height: 300px;
+}
+
+div.where-am-i {
+  background-image: url("../img/broken-link.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 0;
+  margin-top: 20px;
+  margin: auto;
+  margin-bottom: 2%;
+  width: 400px;
+  height: 170px;
+}
+
+div.not-found p.title {
+  margin-bottom: 20px;
+}
+
+div.not-found a {
+  text-decoration: underline;
+  color: black !important;
+}
+
+p.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+form span {
+  cursor: pointer;
+}
+form.login .show {
+  animation-name: display;
+  animation-iteration-count: 1;
+  animation-duration:  0.2s;
+  opacity: 1;
+}
+
+form div {
+  margin: 10px 0 10px 0;
+}
+form {
+  left: 0;
+  margin: 20px auto 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  max-width: 30%;
+}
+form p {
+  text-align: center;
+}
+form span {
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+form input[type="submit"],
+form input[type="button"],
+input.print-report {
+  margin-top: 35px;
+  border: 0px;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: #480000;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+input.print-report:hover,
+input.print-report:focus,
+input.print-report:active,
+input.print-report:disabled,
+form input[type="submit"]:hover,
+form input[type="submit"]:focus,
+form input[type="submit"]:active,
+form input[type="submit"]:disabled,
+form input[type="button"]:hover,
+form input[type="button"]:focus,
+form input[type="button"]:active,
+form input[type="button"]:disabled {
+  background-color: rgba(72, 0, 0, 0.62);
+}
+input.print-report:focus,
+input.print-report:active,
+form input[type="submit"]:focus,
+form input[type="submit"]:active,
+form input[type="button"]:focus,
+form input[type="button"]:active {
+  font-size: 19px;
+}
+textarea[name="accion"],
+form input[type="text"],
+form input[type="number"],
+form input[type="password"] {
+  border:  1px solid #ccc;
+  padding: 3px;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+textarea[name="accion"]:hover,
+textarea[name="accion"]:active,
+textarea[name="accion"]:focus,
+form input[type="text"]:hover,
+form input[type="text"]:active,
+form input[type="text"]:focus,
+form input[type="number"]:hover,
+form input[type="number"]:active,
+form input[type="number"]:focus
+form input[type="password"]:hover,
+form input[type="password"]:active,
+form input[type="password"]:focus {
+  padding: 5px;
+  background-color: #ccc;
+  border:  1px solid rgb(110, 110, 110);
+}
+
+div.loading {
+  background: #00000045;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+div.loading img {
+  height: 20vh;
+}
+
+div.container {
+  width: 80%;
+  text-align: center;
+  left: 0;
+  margin: auto;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1.title,
+h1.title-simple {
+  margin-top: 15px;
+  font-size: 35px;
+  width: 100%;
+  position: relative;
+  color: #B5B5B5;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 5px;
+  transition: background-color 0.2s;
+  animation:  change-background-color 120s;
+  animation-iteration-count: infinite;
+}
+
+form h1.title,
+h1.title-simple {
+  animation: none;
+}
+
+@keyframes change-background-color {
+  0% {
+    color:  #3B9B9F;
+  }
+  10% {
+    color:  #DF5797;
+  }
+  20% {
+    color:  #58C187;
+  }
+  30% {
+    color:  #A56AD7;
+  }
+  40% {
+    color:  #EB8A5B;
+  }
+  50% {
+    color:  #4EC2FE;
+  }
+  60% {
+    color:  #EB8A5B;
+  }
+  70% {
+    color:  #A56AD7;
+  }
+  80% {
+    color:  #58C187;
+  }
+  90% {
+    color:  #DF5797;
+  }
+  100% {
+    color: #A300E0;
+  }
+}
+
+@keyframes error-blink {
+  0% {
+    background-color: #920101;
+  }
+
+  50% {
+    background-color: #bf0000;
+  }
+
+  100% {
+    background-color: #920101;
+  }
+}
+
+div.error {
+  background-color: #920101;
+  padding: 1px 0px 0px 0px;
+  color: white !important;
+  transition: background-color 0.2s;
+  animation:  error-blink 0.7s;
+  animation-iteration-count: infinite;
+}
+
+div.footer {
+  color: #B5B5B5;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+div.wrapper {
+  margin-bottom: 60px;
+}
+
+div.footer p {
+  margin-top: 15px;
+  text-align: center;
+  justify-content: center;
+}
+
+form.create-user table {
+  padding: 3px;
+  left: 0;
+  margin: 20px auto;
+}
+
+form table tr td {
+  border: 1px solid #7E7E7E;
+  padding: 3px;
+}
+
+.card {
+  width: 60%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  left: 0;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+div.inv {
+  display: flex;
+  justify-content: space-around;
+}
+
+div.inv a,
+div.list a {
+  color: black;
+  transition: color 0.2s;
+}
+
+div.list {
+  -webkit-box-shadow: 0px 0px 6px 1px rgba(72,0,0,0.73);
+  -moz-box-shadow: 0px 0px 6px 1px rgba(72,0,0,0.73);
+  box-shadow: 0px 0px 6px 1px rgba(72,0,0,0.73);
+}
+
+div.list a:hover {
+  color:  #B5B5B5;
+}
+
+form.inventario-asignar div input {
+  width: 100%;
+}
+
+.lower_line {
+  border-bottom: 1px solid rgba(64, 64, 64, 0.34);
+}
+
+textarea[name="accion"] {
+  resize: none;
+  overflow: auto;
+  height: 20vh;
+}
+
+select.select-report {
+  width: 30%;
+}
+
+div.reporte-serial, div.reporte-general, div.reporte-estadistica {
+  display: none;
+}
+
+.remove-before {
+  cursor: pointer;
+}
+
+div.logo img {
+  height: 60px;
+  float: left;
+}

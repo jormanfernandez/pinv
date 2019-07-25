@@ -51,6 +51,7 @@ class personRoute extends Router {
 				require self::MAIN_REQUIRE.SEP."search_bar.php";
 
 				if (empty($address[1])) {
+					require self::MAIN_REQUIRE.SEP."list.php";
 					break;
 				}
 

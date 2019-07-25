@@ -5,8 +5,8 @@ define("SEP", DIRECTORY_SEPARATOR);
 /**
  * PINV - Trabajos a tu medida en PHP y JavaScript ES6
  * Carga de configuración inicial del sistema
- * @author <Jorman Fernandez>
- * @version 1.2
+ * @author <Jorman Fernandeza>
+ * @version 1.2.4
  */
 require ".".SEP."admin".SEP."main".SEP."cfg.php";
 

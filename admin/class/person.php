@@ -499,6 +499,25 @@ class Person {
 
 		return $db->simple()["pid"];
 	}
+
+	/**
+	 * ******************
+	 * Obtienes todas las personas del sistema
+	 * @return {array}
+	 * ******************
+	 */
+	public static function getAll () : array {
+
+		global $db;
+
+		$db->query("SELECT id FROM personas ORDER BY created_at DESC");
+
+		if(!$db->ejecutar()) {
+			return [];
+		}
+
+		return $db->contar() > 0 ? $db->todos() : [];
+	}
 }
 
 ?>

@@ -44,7 +44,7 @@ class User {
 			estatus.nombre AS nameStatus,
 			u.person AS person
 		FROM users u
-		INNER JOIN estatus ON estatus.id = u.id
+		INNER JOIN estatus ON estatus.id = u.estatus
 		WHERE u.".$data["searchBy"]." = :search")
 		->bind(":search", $data["data"]);
 
@@ -101,6 +101,24 @@ class User {
 				$rsp = [
 					"rsp" => true,
 					"data" => $this->nick
+				];
+
+			break;
+
+			case "person":
+
+				$rsp = [
+					"rsp" => true,
+					"data" => $this->owner
+				];
+
+			break;
+
+			case "estatus":
+			
+				$rsp = [
+					"rsp" => true,
+					"data" => $this->estatus
 				];
 
 			break;
@@ -660,6 +678,25 @@ class User {
 		}
 
 		return $allow;
+	}
+
+	/**
+	 * ******************
+	 * Obtienes todos los users del sistema
+	 * @return {array}
+	 * ******************
+	 */
+	public static function getAll() {
+
+		global $db;
+
+		$db->query("SELECT id FROM users");
+
+		if (!$db->ejecutar()) {
+			return [];
+		}
+
+		return $db->contar() < 0 ? [] : $db->todos();
 	}
 }
 

@@ -2257,8 +2257,8 @@ $(document).on("submit", "form.search-articulos", function(ev) {
 	let self = $(this);
 	let form = new FormData(this);
 
-	let pid = form.get("pid");
-	let url = `${domain}/inventario/${self.data("type")}/${pid}`;
+	let serial = form.get("serial");
+	let url = `${domain}/inventario/${self.data("type")}/${serial}`;
 
 	if (window.location.href === url)
 		return;
@@ -2279,7 +2279,7 @@ $(document).on("submit", "form.inventario-asignar", function(ev) {
 		puesto: form.get("puesto"),
 		estatus: form.get("estatus"),
 		accion: form.get("accion"),
-		pid: self.data("pid"),
+		serial: self.data("serial"),
 	}
 
 	for(let field in data) {
@@ -2288,7 +2288,7 @@ $(document).on("submit", "form.inventario-asignar", function(ev) {
 
 	data.departamento = new Number(data.departamento);
 
-	if (isEmpty(data.pid)) {
+	if (isEmpty(data.serial)) {
 		showDialog({
             title: 'Error',
             text: 'No se encontro el articulo a asignar',
@@ -2413,7 +2413,7 @@ $(document).on("submit", "form.inventario-modificar", function (ev) {
 	let self = $(this);
 	let form = new FormData(this);
 	let data = {
-		pid: self.data("pid"),
+		pid: self.data("serial"),
 		nombre: form.get("nombre"),
 		categoria: form.get("categoria"),
 		marca: form.get("marca"),

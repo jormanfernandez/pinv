@@ -27,7 +27,7 @@ class Articulo {
 		$sql = "SELECT 
 			inv.*
 		FROM inventario AS inv
-		WHERE ".(is_int($data) ? "inv.id = :data" : "inv.pid = :data");
+		WHERE ".(is_int($data) ? "inv.id = :data" : "inv.serial = :data");
 
 		$db->query($sql)
 		->bind(":data", $data);
@@ -398,18 +398,8 @@ class Articulo {
 		}
 
 		$return["rsp"] = true;
-
-		$pid = "";
-		$id = $db->id();
-
-		$db->query("SELECT pid FROM inventario WHERE id = :id")
-		->bind(":id", $id)
-		->ejecutar();
-
-		$pid = $db->simple()["pid"];
-
 		$return["data"] = "Articulo agregado exitosamente";
-		$return["id"] = $pid;
+		$return["id"] = $data[":serial"];
 
 		return $return;
 	}

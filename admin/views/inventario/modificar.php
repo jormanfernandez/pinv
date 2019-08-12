@@ -1,5 +1,5 @@
 <div>
-	<form class="inventario-modificar" data-pid="<?php echo texto($articulo->get("pid"))?>">
+	<form class="inventario-modificar" data-serial="<?php echo texto($articulo->get("serial"))?>">
 		<h1 class="title">
 			Modificar el articulo <?php echo texto($articulo->get("serial"));?>
 		</h1>

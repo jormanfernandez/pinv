@@ -45,14 +45,13 @@ class inventarioAjaxRoute {
 
 				$departamento = isset($_POST["departamento"]) ? intval($_POST["departamento"]): 0;
 				$asignar = isset($_POST["asignar"]) ? strval($_POST["asignar"]) : "";
-				$asignar = isset($_POST["asignar"]) ? strval($_POST["asignar"]) : "";
 				$persona = isset($_POST["persona"]) ? intval($_POST["persona"]) : NULL;
 				$puesto = isset($_POST["puesto"]) ? intval($_POST["puesto"]) : NULL;
 				$estatus = isset($_POST["estatus"]) ? intval($_POST["estatus"]) : 0;
-				$pid = isset($_POST["pid"]) ? strval($_POST["pid"]) : "";
+				$serial = isset($_POST["serial"]) ? strval($_POST["serial"]) : "";
 				$accion = isset($_POST["accion"]) ? trim(strval($_POST["accion"])) : "";
 
-				$articulo = new Articulo($pid);
+				$articulo = new Articulo($serial);
 
 				if ($articulo->hasError()) {
 					$json["data"] = "Error leyendo articulo: ".$articulo->get("error"); 
